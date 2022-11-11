@@ -6,21 +6,21 @@ using Tel.Egram.Model.Popups;
 
 namespace Tel.Egram.Model.Settings.Proxy
 {
-    public class ProxyPopupContext : PopupContext, ISupportsActivation
+    public class ProxyPopupContext : PopupContext, IActivatableViewModel
     {
-        public ReactiveCommand<Unit, ProxyModel> AddProxyCommand { get; set; }
+        private ReactiveCommand<Unit, _proxyModel> AddProxyCommand;
         
-        public ReactiveCommand<ProxyModel, ProxyModel> SaveProxyCommand { get; set; }
+        private ReactiveCommand<ProxyModel, _proxyModel> SaveProxyCommand;
         
-        public ReactiveCommand<ProxyModel, ProxyModel> EnableProxyCommand { get; set; }
+        private ReactiveCommand<ProxyModel, _proxyModel> EnableProxyCommand;
         
-        public ReactiveCommand<ProxyModel, ProxyModel> RemoveProxyCommand { get; set; }
+        private ReactiveCommand<ProxyModel, _proxyModel> RemoveProxyCommand;
         
-        public bool IsProxyEnabled { get; set; }
+        private bool _isProxyEnabled;
         
-        public ProxyModel SelectedProxy { get; set; }
+        private ProxyModel _selectedProxy;
         
-        public ObservableCollectionExtended<ProxyModel> Proxies { get; set; }
+        private ObservableCollectionExtended<ProxyModel> _proxies;
 
         public ViewModelActivator Activator { get; } = new ViewModelActivator();
 

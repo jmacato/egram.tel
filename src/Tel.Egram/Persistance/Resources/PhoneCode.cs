@@ -2,12 +2,12 @@ namespace Tel.Egram.Services.Persistance.Resources
 {
     public class PhoneCode
     {
-        public string Code { get; set; }
+        private string _code;
         
-        public string CountryCode { get; set; }
+        private string _countryCode;
         
-        public string CountryName { get; set; }
+        private string _countryName;
         
-        public string Mask { get; set; }
+        private string _mask;
     }
 }

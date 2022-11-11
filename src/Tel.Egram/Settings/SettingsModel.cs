@@ -1,10 +1,10 @@
-using PropertyChanged;
-using ReactiveUI;
+ using CommunityToolkit.Mvvm.ComponentModel;
+ using ReactiveUI;
 
 namespace Tel.Egram.Model.Settings
 {
-    [AddINotifyPropertyChangedInterface]
-    public class SettingsModel : ISupportsActivation
+    [ObservableObject]
+	public partial class SettingsModel : IActivatableViewModel
     {
         public ViewModelActivator Activator { get; } = new ViewModelActivator();
     }

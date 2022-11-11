@@ -1,5 +1,5 @@
 using System.Reactive.Disposables;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 using Tel.Egram.Model.Messenger.Catalog;
 using Tel.Egram.Model.Messenger.Editor;
@@ -10,18 +10,18 @@ using Tel.Egram.Services.Messaging.Chats;
 
 namespace Tel.Egram.Model.Messenger
 {
-    [AddINotifyPropertyChangedInterface]
-    public class MessengerModel : ISupportsActivation
+    [ObservableObject]
+	public partial class MessengerModel : IActivatableViewModel
     {   
-        public CatalogModel CatalogModel { get; set; }
+        private CatalogModel _catalogModel;
         
-        public InformerModel InformerModel { get; set; }
+        private InformerModel _informerModel;
         
-        public ExplorerModel ExplorerModel { get; set; }
+        private ExplorerModel _explorerModel;
         
-        public HomepageModel HomepageModel { get; set; }
+        private HomepageModel _homepageModel;
         
-        public EditorModel EditorModel { get; set; }
+        private EditorModel _editorModel;
 
         public MessengerModel(Section section)
         {

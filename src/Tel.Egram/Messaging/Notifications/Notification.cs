@@ -4,8 +4,8 @@ namespace Tel.Egram.Services.Messaging.Notifications
 {
     public class Notification
     {
-        public TdApi.Chat Chat { get; set; }
+        private TdApi.Chat _chat;
         
-        public TdApi.Message Message { get; set; }
+        private TdApi.Message _message;
     }
 }

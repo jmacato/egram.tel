@@ -4,6 +4,6 @@ namespace Tel.Egram.Model.Messenger.Catalog.Entries
 {
     public class AggregateEntryModel : EntryModel
     {
-        public Aggregate Aggregate { get; set; }
+        private Aggregate _aggregate;
     }
 }

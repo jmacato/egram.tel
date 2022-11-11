@@ -1,16 +1,16 @@
 using System.Collections.Generic;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 using Tel.Egram.Services.Messaging.Notifications;
 
 namespace Tel.Egram.Model.Notifications
 {
-    [AddINotifyPropertyChangedInterface]
-    public class NotificationModel : ISupportsActivation
+    [ObservableObject]
+	public partial class NotificationModel : IActivatableViewModel
     {
-        public string Title { get; set; }
+        private string _title;
         
-        public string Text { get; set; }
+        private string _text;
         
         public ViewModelActivator Activator { get; } = new ViewModelActivator();
 

@@ -4,8 +4,8 @@ namespace Tel.Egram.Services.Messaging.Chats
 {
     public class Chat
     {
-        public TdApi.Chat ChatData { get; set; }
+        private TdApi.Chat _chatData;
         
-        public TdApi.User User { get; set; }
+        private TdApi.User _user;
     }
 }

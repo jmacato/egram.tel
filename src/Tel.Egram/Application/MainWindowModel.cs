@@ -1,5 +1,5 @@
 using System.Reactive.Disposables;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 using Tel.Egram.Model.Application.Startup;
 using Tel.Egram.Model.Authentication;
@@ -8,22 +8,22 @@ using Tel.Egram.Model.Workspace;
 
 namespace Tel.Egram.Model.Application
 {
-    [AddINotifyPropertyChangedInterface]
-    public class MainWindowModel : ModelBase
+    [ObservableObject]
+	public partial class MainWindowModel : IActivatableViewModel
     {
-        public StartupModel StartupModel { get; set; }
+        private StartupModel _startupModel;
         
-        public AuthenticationModel AuthenticationModel { get; set; }
+        private AuthenticationModel _authenticationModel;
         
-        public WorkspaceModel WorkspaceModel { get; set; }
+        private WorkspaceModel _workspaceModel;
         
-        public PopupModel PopupModel { get; set; }
+        private PopupModel _popupModel;
         
-        public int PageIndex { get; set; }
+        private int _pageIndex;
         
-        public string WindowTitle { get; set; }
+        private string _windowTitle;
 
-        public string ConnectionState { get; set; }
+        private string _connectionState;
 
         public MainWindowModel()
         {
@@ -42,9 +42,5 @@ namespace Tel.Egram.Model.Application
 
         public ViewModelActivator Activator { get; } = new ViewModelActivator();
     }
-
-    []
-    public class ModelBase
-    {
-    }
+ 
 }

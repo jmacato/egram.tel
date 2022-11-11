@@ -44,21 +44,21 @@ namespace Tel.Egram
             {
                 var storage = services.GetService<IStorage>();
                 
-                Client.Log.SetFilePath(Path.Combine(storage.LogDirectory, "tdlib.log"));
-                Client.Log.SetMaxFileSize(1_000_000); // 1MB
-                Client.Log.SetVerbosityLevel(5);
-                return new Client();
+                TdApi.Client.Log.SetFilePath(Path.Combine(storage.LogDirectory, "tdlib.log"));
+                TdApi.Client.Log.SetMaxFileSize(1_000_000); // 1MB
+                TdApi.Client.Log.SetVerbosityLevel(5);
+                return new TdApi.Client();
             });
 
             services.RegisterLazySingleton(() =>
             {
-                var client = services.GetService<Client>();
+                var client = services.GetService<TdApi.Client>();
                 return new Hub(client);
             });
 
             services.RegisterLazySingleton(() =>
             {
-                var client = services.GetService<Client>();
+                var client = services.GetService<TdApi.Client>();
                 var hub = services.GetService<Hub>();
                 return new Dialer(client, hub);
             });

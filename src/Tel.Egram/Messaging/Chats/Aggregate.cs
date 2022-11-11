@@ -4,7 +4,7 @@ namespace Tel.Egram.Services.Messaging.Chats
 {
     public class Aggregate
     {
-        public long Id { get; set; }
+        private long _id;
         
         public IList<Chat> Chats { get; }
 

@@ -2,10 +2,10 @@ using System;
 using System.Reactive.Concurrency;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using CommunityToolkit.Mvvm.ComponentModel;
 using DynamicData;
 using DynamicData.Binding;
-using PropertyChanged;
-using ReactiveUI;
+ using ReactiveUI;
 using Tel.Egram.Model.Messenger.Explorer.Items;
 using Tel.Egram.Model.Messenger.Explorer.Loaders;
 using Tel.Egram.Services.Messaging.Chats;
@@ -14,20 +14,18 @@ using Tel.Egram.Services.Utils.Reactive;
 
 namespace Tel.Egram.Model.Messenger.Explorer
 {
-    [AddINotifyPropertyChangedInterface]
-    public class ExplorerModel : ISupportsActivation
+    [ObservableObject]
+	public partial class ExplorerModel : IActivatableViewModel
     {
-        public bool IsVisible { get; set; } = true;
+        private bool _isVisible = true;
         
-        public Range VisibleRange { get; set; }
+        private Range _visibleRange;
         
-        public ItemModel TargetItem { get; set; }
+        private ItemModel _targetItem;
         
-        public ObservableCollectionExtended<ItemModel> Items { get; set; }
-            = new ObservableCollectionExtended<ItemModel>();
+        private ObservableCollectionExtended<ItemModel> _items = new ObservableCollectionExtended<ItemModel>();
         
-        public SourceList<ItemModel> SourceItems { get; set; }
-            = new SourceList<ItemModel>();
+        private SourceList<ItemModel> _sourceItems = new SourceList<ItemModel>();
 
         public ExplorerModel(Chat chat)
         {

@@ -1,27 +1,27 @@
-using PropertyChanged;
-using TdLib;
+ using CommunityToolkit.Mvvm.ComponentModel;
+ using TdLib;
 using Tel.Egram.Services.Graphics.Previews;
 using Tel.Egram.Services.Messaging.Messages;
 
 namespace Tel.Egram.Model.Messenger.Explorer.Messages
 {
-    [AddINotifyPropertyChangedInterface]
-    public class ReplyModel
+    [ObservableObject]
+	public partial class ReplyModel
     {
-        public string AuthorName { get; set; }
+        private string _authorName;
         
-        public string Text { get; set; }
+        private string _text;
         
-        public bool HasPreview { get; set; }
+        private bool _hasPreview;
         
-        public Preview Preview { get; set; }
+        private Preview _preview;
         
-        public Message Message { get; set; }
+        private Message _message;
         
-        public TdApi.Photo PhotoData { get; set; }
+        private TdApi.Photo _photoData;
         
-        public TdApi.Sticker StickerData { get; set; }
+        private TdApi.Sticker _stickerData;
         
-        public TdApi.Video VideoData { get; set; }
+        private TdApi.Video _videoData;
     }
 }

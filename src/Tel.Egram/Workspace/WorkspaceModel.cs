@@ -1,5 +1,5 @@
 using System.Reactive.Disposables;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 using Tel.Egram.Model.Messenger;
 using Tel.Egram.Model.Settings;
@@ -7,16 +7,16 @@ using Tel.Egram.Model.Workspace.Navigation;
 
 namespace Tel.Egram.Model.Workspace
 {
-    [AddINotifyPropertyChangedInterface]
-    public class WorkspaceModel : ISupportsActivation
+    [ObservableObject]
+	public partial class WorkspaceModel : IActivatableViewModel
     {
-        public NavigationModel NavigationModel { get; set; }
+        private NavigationModel _navigationModel;
         
-        public MessengerModel MessengerModel { get; set; }
+        private MessengerModel _messengerModel;
         
-        public SettingsModel SettingsModel { get; set; }
+        private SettingsModel _settingsModel;
         
-        public int ContentIndex { get; set; }
+        private int _contentIndex;
 
         public WorkspaceModel()
         {

@@ -5,7 +5,7 @@ namespace Tel.Egram.Services.Persistance
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<KeyValueEntity> Values { get; set; }
+        private DbSet<KeyValueEntity> _values;
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)

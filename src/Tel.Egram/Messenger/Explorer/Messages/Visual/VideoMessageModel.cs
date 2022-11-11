@@ -4,11 +4,11 @@ using TdLib;
 
 namespace Tel.Egram.Model.Messenger.Explorer.Messages.Visual
 {
-    public class VideoMessageModel : VisualMessageModel, ISupportsActivation
+    public class VideoMessageModel : VisualMessageModel, IActivatableViewModel
     {
-        public string Text { get; set; }
+        private string _text;
         
-        public TdApi.Video VideoData { get; set; }
+        private TdApi.Video _videoData;
         
         public VideoMessageModel()
         {

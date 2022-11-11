@@ -1,19 +1,19 @@
 using System.Reactive;
 using System.Reactive.Disposables;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 using Tel.Egram.Services.Messaging.Chats;
 
 namespace Tel.Egram.Model.Messenger.Editor
 {
-    [AddINotifyPropertyChangedInterface]
-    public class EditorModel : ISupportsActivation
+    [ObservableObject]
+	public partial class EditorModel : IActivatableViewModel
     {
-        public bool IsVisible { get; set; } = true;
+        private bool _isVisible = true;
         
-        public string Text { get; set; }
+        private string _text;
         
-        public ReactiveCommand<Unit, Unit> SendCommand { get; set; }
+        private ReactiveCommand<Unit, _unit> SendCommand;
         
         public EditorModel(Chat chat)
         {

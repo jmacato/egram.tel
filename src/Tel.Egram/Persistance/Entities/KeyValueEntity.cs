@@ -2,8 +2,8 @@ namespace Tel.Egram.Services.Persistance.Entities
 {
     public class KeyValueEntity
     {
-        public string Key { get; set; }
+        private string _key;
         
-        public string Value { get; set; }
+        private string _value;
     }
 }

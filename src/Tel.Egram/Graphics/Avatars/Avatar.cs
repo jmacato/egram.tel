@@ -6,13 +6,13 @@ namespace Tel.Egram.Services.Graphics.Avatars
 {
     public class Avatar
     {
-        public IBitmap Bitmap { get; set; }
+        private IBitmap _bitmap;
 
-        public Color TextColor { get; set; } = Colors.White;
+        private Color _textColor = Colors.White;
         
-        public Color Color { get; set; }
+        private Color _color;
         
-        public string Label { get; set; }
+        private string _label;
 
         public bool IsFallback => Bitmap == null;
     }

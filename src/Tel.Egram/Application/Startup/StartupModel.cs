@@ -1,9 +1,10 @@
-using PropertyChanged;
+ 
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Tel.Egram.Model.Application.Startup
 {
-    [AddINotifyPropertyChangedInterface]
-    public class StartupModel
+    [ObservableObject]
+	public partial class StartupModel
     {
         
     }

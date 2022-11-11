@@ -1,17 +1,17 @@
 using System.Reactive.Disposables;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 
 namespace Tel.Egram.Model.Popups
 {
-    [AddINotifyPropertyChangedInterface]
-    public class PopupModel : ISupportsActivation
+    [ObservableObject]
+	public partial class PopupModel : IActivatableViewModel
     {
-        public PopupContext[] Contexts { get; set; }
+        private PopupContext[] _contexts;
         
-        public PopupContext Context { get; set; }
+        private PopupContext _context;
 
-        public bool IsVisible { get; set; } = true;
+        private bool _isVisible = true;
 
         public PopupModel(PopupContext context)
         {

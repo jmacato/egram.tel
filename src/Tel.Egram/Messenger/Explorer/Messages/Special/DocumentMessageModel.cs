@@ -5,21 +5,21 @@ using TdLib;
 
 namespace Tel.Egram.Model.Messenger.Explorer.Messages.Special
 {
-    public class DocumentMessageModel : MessageModel, ISupportsActivation
+    public class DocumentMessageModel : MessageModel, IActivatableViewModel
     {
-        public TdApi.Document Document { get; set; }
+        private TdApi.Document _document;
         
-        public bool IsDownloaded { get; set; }
+        private bool _isDownloaded;
         
-        public string Name { get; set; }
+        private string _name;
         
-        public string Text { get; set; }
+        private string _text;
         
-        public string Size { get; set; }
+        private string _size;
         
-        public ReactiveCommand<DocumentMessageModel, bool> DownloadCommand { get; set; }
+        private ReactiveCommand<DocumentMessageModel, _bool> DownloadCommand;
         
-        public ReactiveCommand<DocumentMessageModel, bool> ShowCommand { get; set; }
+        private ReactiveCommand<DocumentMessageModel, _bool> ShowCommand;
         
         public DocumentMessageModel()
         {       

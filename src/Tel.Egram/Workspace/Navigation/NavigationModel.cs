@@ -1,16 +1,16 @@
 using System.Reactive.Disposables;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 using Tel.Egram.Services.Graphics.Avatars;
 
 namespace Tel.Egram.Model.Workspace.Navigation
 {
-    [AddINotifyPropertyChangedInterface]
-    public class NavigationModel : ISupportsActivation
+    [ObservableObject]
+	public partial class NavigationModel : IActivatableViewModel
     {
-        public Avatar Avatar { get; set; }
+        private Avatar _avatar;
 
-        public int SelectedTabIndex { get; set; }
+        private int _selectedTabIndex;
 
         public NavigationModel()
         {

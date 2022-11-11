@@ -1,19 +1,19 @@
 using System.Reactive.Disposables;
+using CommunityToolkit.Mvvm.ComponentModel;
 using DynamicData.Binding;
-using PropertyChanged;
-using ReactiveUI;
+ using ReactiveUI;
 using Tel.Egram.Model.Messenger.Explorer.Messages;
 
 namespace Tel.Egram.Model.Messenger.Homepage
 {
-    [AddINotifyPropertyChangedInterface]
-    public class HomepageModel : ISupportsActivation
+    [ObservableObject]
+	public partial class HomepageModel : IActivatableViewModel
     {
-        public bool IsVisible { get; set; } = true;
+        private bool _isVisible = true;
         
-        public string SearchText { get; set; }
+        private string _searchText;
         
-        public ObservableCollectionExtended<MessageModel> PromotedMessages { get; set; }
+        private ObservableCollectionExtended<MessageModel> _promotedMessages;
         
         public HomepageModel()
         {

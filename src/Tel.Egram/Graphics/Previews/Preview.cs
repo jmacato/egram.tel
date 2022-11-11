@@ -4,8 +4,8 @@ namespace Tel.Egram.Services.Graphics.Previews
 {
     public class Preview
     {
-        public IBitmap Bitmap { get; set; }
+        private IBitmap _bitmap;
         
-        public PreviewQuality Quality { get; set; }
+        private PreviewQuality _quality;
     }
 }

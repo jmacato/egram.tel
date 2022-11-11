@@ -1,9 +1,10 @@
-using PropertyChanged;
+ 
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Tel.Egram.Model.Messenger.Explorer.Messages
 {
-    [AddINotifyPropertyChangedInterface]
-    public class UnsupportedMessageModel : MessageModel
+    [ObservableObject]
+	public partial class UnsupportedMessageModel : MessageModel
     {
         
     }

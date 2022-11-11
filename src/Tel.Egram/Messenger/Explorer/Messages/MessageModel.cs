@@ -6,16 +6,16 @@ namespace Tel.Egram.Model.Messenger.Explorer.Messages
 {
     public abstract class MessageModel : ItemModel
     {
-        public string AuthorName { get; set; }
+        private string _authorName;
 
-        public string Time { get; set; }
+        private string _time;
         
-        public Avatar Avatar { get; set; }
+        private Avatar _avatar;
         
-        public Message Message { get; set; }
+        private Message _message;
         
-        public bool HasReply { get; set; }
+        private bool _hasReply;
         
-        public ReplyModel Reply { get; set; }
+        private ReplyModel _reply;
     }
 }

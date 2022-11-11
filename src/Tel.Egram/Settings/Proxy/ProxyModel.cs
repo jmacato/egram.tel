@@ -1,55 +1,55 @@
-using PropertyChanged;
-using ReactiveUI;
+ using CommunityToolkit.Mvvm.ComponentModel;
+ using ReactiveUI;
 using TdLib;
 
 namespace Tel.Egram.Model.Settings.Proxy
 {
-    [AddINotifyPropertyChangedInterface]
-    public class ProxyModel
+    [ObservableObject]
+	public partial class ProxyModel
     {
-        public int Id { get; set; }
+        private int _id;
         
-        public TdApi.Proxy Proxy { get; set; }
+        private TdApi.Proxy _proxy;
         
-        public bool IsEnabled { get; set; }
+        private bool _isEnabled;
         
-        public bool IsSaved { get; set; }
+        private bool _isSaved;
 
-        public bool IsEditable { get; set; }
+        private bool _isEditable;
         
-        public bool IsRemovable { get; set; }
+        private bool _isRemovable;
         
-        public ReactiveCommand<ProxyModel, ProxyModel> EnableCommand { get; set; }
+        private ReactiveCommand<ProxyModel, _proxyModel> EnableCommand;
         
-        public ReactiveCommand<ProxyModel, ProxyModel> RemoveCommand { get; set; }
+        private ReactiveCommand<ProxyModel, _proxyModel> RemoveCommand;
         
-        public bool IsSocks5 { get; set; }
+        private bool _isSocks5;
         
-        public bool IsHttp { get; set; }
+        private bool _isHttp;
         
-        public bool IsMtProto { get; set; }
+        private bool _isMtProto;
         
-        public bool IsServerInputVisible { get; set; }
+        private bool _isServerInputVisible;
         
-        public bool IsUsernameInputVisible { get; set; }
+        private bool _isUsernameInputVisible;
         
-        public bool IsPasswordInputVisible { get; set; }
+        private bool _isPasswordInputVisible;
         
-        public bool IsSecretInputVisible { get; set; }
+        private bool _isSecretInputVisible;
         
-        public string Label { get; set; }
+        private string _label;
         
-        public string UnsavedLabel { get; set; }
+        private string _unsavedLabel;
         
-        public string Server { get; set; }
+        private string _server;
         
-        public string Port { get; set; }
+        private string _port;
         
-        public string Username { get; set; }
+        private string _username;
         
-        public string Password { get; set; }
+        private string _password;
         
-        public string Secret { get; set; }
+        private string _secret;
 
         public static ProxyModel DisabledProxy()
         {

@@ -1,13 +1,13 @@
 ﻿using System.Reactive;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 
 namespace Tel.Egram.Model.Popups
 {
-    [AddINotifyPropertyChangedInterface]
-    public class PopupContext
+    [ObservableObject]
+	public partial class PopupContext
     {
-        public string Title { get; set; }
+        private string _title;
         
         public ReactiveCommand<Unit, Unit> CloseCommand { get; }
 

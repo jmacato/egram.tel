@@ -2,31 +2,28 @@ using System;
 using System.Collections.Generic;
 using System.Reactive.Disposables;
 using System.Reactive.Subjects;
+using CommunityToolkit.Mvvm.ComponentModel;
 using DynamicData.Binding;
-using PropertyChanged;
-using ReactiveUI;
+ using ReactiveUI;
 using Tel.Egram.Model.Messenger.Catalog.Entries;
 using Tel.Egram.Services.Messaging.Chats;
 
 namespace Tel.Egram.Model.Messenger.Catalog
 {
-    [AddINotifyPropertyChangedInterface]
-    public class CatalogModel : ISupportsActivation
+    [ObservableObject]
+	public partial class CatalogModel : IActivatableViewModel
     {
-        public bool IsVisible { get; set; } = true;
+        private bool _isVisible = true;
         
-        public EntryModel SelectedEntry { get; set; }
+        private EntryModel _selectedEntry;
         
-        public ObservableCollectionExtended<EntryModel> Entries { get; set; }
-            = new ObservableCollectionExtended<EntryModel>();
+        private ObservableCollectionExtended<EntryModel> _entries = new ObservableCollectionExtended<EntryModel>();
         
-        public string SearchText { get; set; }
+        private string _searchText;
         
-        public Subject<IComparer<EntryModel>> SortingController { get; set; }
-            = new Subject<IComparer<EntryModel>>();
+        private Subject<IComparer<EntryModel>> _sortingController = new Subject<IComparer<EntryModel>>();
         
-        public Subject<Func<EntryModel, bool>> FilterController { get; set; }
-            = new Subject<Func<EntryModel, bool>>();
+        private Subject<Func<EntryModel, bool>> _filterController = new Subject<Func<EntryModel, bool>>();
 
         public CatalogModel(Section section)
         {

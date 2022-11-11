@@ -2,6 +2,6 @@
 {
     public class ChatLoadingState
     {
-        public long LastMessageId { get; set; }
+        private long _lastMessageId;
     }
 }

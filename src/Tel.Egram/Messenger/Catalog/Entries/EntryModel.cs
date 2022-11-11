@@ -1,24 +1,24 @@
 using System.Reactive.Disposables;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 using Tel.Egram.Services.Graphics.Avatars;
 
 namespace Tel.Egram.Model.Messenger.Catalog.Entries
 {
-    [AddINotifyPropertyChangedInterface]
-    public class EntryModel : ISupportsActivation
+    [ObservableObject]
+	public partial class EntryModel : IActivatableViewModel
     {
-        public long Id { get; set; }
+        private long _id;
         
-        public int Order { get; set; }
+        private int _order;
         
-        public string Title { get; set; }
+        private string _title;
         
-        public Avatar Avatar { get; set; }
+        private Avatar _avatar;
 
-        public bool HasUnread { get; set; }
+        private bool _hasUnread;
 
-        public string UnreadCount { get; set; }
+        private string _unreadCount;
 
         public EntryModel()
         {

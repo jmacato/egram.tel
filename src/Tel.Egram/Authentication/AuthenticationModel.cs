@@ -1,39 +1,39 @@
 using System.Reactive;
 using System.Reactive.Disposables;
+using CommunityToolkit.Mvvm.ComponentModel;
 using DynamicData.Binding;
-using PropertyChanged;
-using ReactiveUI;
+ using ReactiveUI;
 using Tel.Egram.Model.Authentication.Phone;
 using Tel.Egram.Model.Authentication.Proxy;
 using Tel.Egram.Model.Authentication.Results;
 
 namespace Tel.Egram.Model.Authentication
 {
-    [AddINotifyPropertyChangedInterface]
-    public class AuthenticationModel : ISupportsActivation
+    [ObservableObject]
+	public partial class AuthenticationModel : IActivatableViewModel
     {
-        public ReactiveCommand<Unit, Unit> SetProxyCommand { get; set; }
+        private ReactiveCommand<Unit, _unit> SetProxyCommand;
         
-        public ReactiveCommand<AuthenticationModel, SendCodeResult> SendCodeCommand { get; set; }
-        public ReactiveCommand<AuthenticationModel, CheckCodeResult> CheckCodeCommand { get; set; }
-        public ReactiveCommand<AuthenticationModel, CheckPasswordResult> CheckPasswordCommand { get; set; }
+        private ReactiveCommand<AuthenticationModel, _sendCodeResult> SendCodeCommand;
+        private ReactiveCommand<AuthenticationModel, _checkCodeResult> CheckCodeCommand;
+        private ReactiveCommand<AuthenticationModel, _checkPasswordResult> CheckPasswordCommand;
         
-        public bool IsRegistration { get; set; }
+        private bool _isRegistration;
         
-        public int PasswordIndex { get; set; }
-        public int ConfirmIndex { get; set; }
+        private int _passwordIndex;
+        private int _confirmIndex;
         
-        public ObservableCollectionExtended<PhoneCodeModel> PhoneCodes { get; set; }
-        public PhoneCodeModel PhoneCode { get; set; }
+        private ObservableCollectionExtended<PhoneCodeModel> _phoneCodes;
+        private PhoneCodeModel _phoneCode;
         
-        public string PhoneNumber { get; set; }
-        public int PhoneNumberStart { get; set; }
-        public int PhoneNumberEnd { get; set; }
+        private string _phoneNumber;
+        private int _phoneNumberStart;
+        private int _phoneNumberEnd;
         
-        public string ConfirmCode { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Password { get; set; }
+        private string _confirmCode;
+        private string _firstName;
+        private string _lastName;
+        private string _password;
 
         public AuthenticationModel()
         {

@@ -4,12 +4,12 @@ namespace Tel.Egram.Services.Messaging.Messages
 {
     public class Message
     {
-        public Message ReplyMessage { get; set; }
+        private Message _replyMessage;
         
-        public TdApi.Message MessageData { get; set; }
+        private TdApi.Message _messageData;
         
-        public TdApi.Chat ChatData { get; set; }
+        private TdApi.Chat _chatData;
         
-        public TdApi.User UserData { get; set; }
+        private TdApi.User _userData;
     }
 }

@@ -1,21 +1,21 @@
 using System.Reactive.Disposables;
-using PropertyChanged;
+using CommunityToolkit.Mvvm.ComponentModel;
 using ReactiveUI;
 using Tel.Egram.Services.Graphics.Avatars;
 using Tel.Egram.Services.Messaging.Chats;
 
 namespace Tel.Egram.Model.Messenger.Informer
 {
-    [AddINotifyPropertyChangedInterface]
-    public class InformerModel : ISupportsActivation
+    [ObservableObject]
+	public partial class InformerModel : IActivatableViewModel
     {
-        public bool IsVisible { get; set; } = true;
+        private bool _isVisible = true;
         
-        public string Title { get; set; }
+        private string _title;
         
-        public string Label { get; set; }
+        private string _label;
         
-        public Avatar Avatar { get; set; }
+        private Avatar _avatar;
         
         public InformerModel(Chat chat)
         {
